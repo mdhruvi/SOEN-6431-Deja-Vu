@@ -8,7 +8,7 @@
 
 # DÉJÀ VU
 
-•The purpose of DÉJÀ VU is learning to make critical decisions through theory and practice of reengineering the source code of a selected system. In doing so, the project studies the maintainability (as defined by the ISO/IEC 25010 Standard) of the selected system.
+The purpose of DÉJÀ VU is learning to make critical decisions through theory and practice of reengineering the source code of a selected system. In doing so, the project studies the maintainability (as defined by the ISO/IEC 25010 Standard) of the selected system.
 The project aims to combine both theoretical knowledge and practical application in order to achieve its objectives. The theoretical aspect involves studying various reengineering techniques, principles, and best practices. This may include learning about code refactoring, design patterns, software metrics, and other relevant concepts.
 The practical aspect of the project involves applying the acquired knowledge to the selected system's source code. The selected system could be an existing software application or a specific component of a larger system. By analyzing and reengineering the source code, the project seeks to improve the system's maintainability.
 
