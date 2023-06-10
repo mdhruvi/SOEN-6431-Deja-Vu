@@ -25,8 +25,8 @@ The purpose of DÉJÀ VU is learning to make critical decisions through theory a
 
 |Name/Problem                        |Research|Brainstorming|Collaborating|Documentation|
 |:----------------------------------:|:----------------:|:-------:|:-------:|:-------:|
-|A K M Saifun Nabi                   |✔       |✔            |             |                      
-|Harshal Jigeshkumar Modi            |✔       |             |             |                      
-|Dhruviben Modi                      |✔       |             |✔            |                    
-|Sumit Monapara                      |✔       |             |✔            |                     
+|A K M Saifun Nabi                   |✔       |✔            |             |✔                      
+|Harshal Jigeshkumar Modi            |✔       |✔            |             |✔                     
+|Dhruviben Modi                      |✔       |             |✔            |✔                   
+|Sumit Monapara                      |✔       |             |✔            |✔                    
 
