@@ -1,0 +1,7 @@
+branch=
+eclipse.preferences.version=1
+prefixMappings=<ArrayList><item><localPrefix></localPrefix><teamscalePrefix></teamscalePrefix><projectId></projectId></item></ArrayList>
+sapSystemUpdateTimeout=60
+teamscaleEnabled=true
+teamscaleProject=billing_master
+teamscaleServer=Sumit0733
