@@ -1,24 +1,23 @@
 package project;
 
-
-
+import java.awt.Color;
+import java.awt.Font;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JComboBox;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JButton;
-import javax.swing.JTable;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
 
 public class Invoice extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5936700818392784923L;
 	private JTextField name;
 	private JTextField pID;
 	private JTextField pQuan;
@@ -28,7 +27,7 @@ public class Invoice extends JPanel {
 	JLabel error ;
 	static int invo=1;
 	DefaultTableModel dtm;
-	Object[] data;
+	transient Object[] data;
 	JComboBox<String> cType;
 	ArrayList<String> comp=new ArrayList<>();
 	private JTextField dField;
@@ -176,7 +175,6 @@ public class Invoice extends JPanel {
 						x++;
 					}
 				}
-			pdfGenerator.makePdf(data,total,invo);
 			invo++;
 			DB.addSaleToDB(data,comp,n);
 		});

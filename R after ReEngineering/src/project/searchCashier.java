@@ -1,36 +1,36 @@
 package project;
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class searchCashier extends JPanel {
+public class SearchCashier extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6992586461787534300L;
 	JTextField idField;
 	JButton btnUpdateProduct;
 	private JLabel error;
-	String id,err="Enter product id!";
+	String err="Enter product id!";
+	String id;
 	/**
 	 * Create the panel.
 	 */
-	public searchCashier() {
+	public SearchCashier() {
 		setLayout(null);
 		setBounds(100, 100, 840, 619);
 		JLabel lblsearch = new JLabel("SEARCH CASHIER");
 		lblsearch.setBounds(319, 84, 182, 21);
-		lblsearch.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblsearch.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 17));
 		add(lblsearch);
 		
 		JLabel lbluser = new JLabel("User name");
-		lbluser.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lbluser.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lbluser.setBounds(253, 156, 124, 21);
 		add(lbluser);
 		
@@ -40,8 +40,7 @@ public class searchCashier extends JPanel {
 		idField.setColumns(10);
 		
 		btnUpdateProduct = new JButton("Search");
-		btnUpdateProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnUpdateProduct.addActionListener (e -> {
 				
 				if(idField.getText().equals(""))
 				{
@@ -54,7 +53,6 @@ public class searchCashier extends JPanel {
 					DB.searchCashier(id);
 					idField.setText("");
 				}
-			}
 		});
 		btnUpdateProduct.setBounds(449, 219, 136, 23);
 		add(btnUpdateProduct);

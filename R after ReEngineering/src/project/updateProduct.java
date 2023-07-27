@@ -1,53 +1,54 @@
 package project;
+import java.awt.Color;
 import java.awt.Font;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.List;
+
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.List;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
 
-public class updateProduct extends JPanel {
+public class UpdateProduct extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2884587084877949217L;
 	JTextField idField;
 	JTextArea descField;
 	JButton btnUpdateProduct;
 	JComboBox<String> company;
 	private JTextField quanField;
 	JLabel error ;
-	String id,detail,comp;
+	String id;
+	String detail;
+	String comp;
 	int quan;
 	String err="Enter product id and quantity";
 	/**
 	 * Create the panel.
 	 */
-	public updateProduct() {
+	public UpdateProduct() {
 		setLayout(null);
 		setBounds(100, 100, 840, 619);
 		JLabel lblUpdateProduct = new JLabel("UPDATE PRODUCT");
 		lblUpdateProduct.setBounds(328, 45, 182, 21);
-		lblUpdateProduct.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblUpdateProduct.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 17));
 		add(lblUpdateProduct);
 		
 		JLabel lblProductName = new JLabel("Product ID");
-		lblProductName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblProductName.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblProductName.setBounds(246, 136, 124, 21);
 		add(lblProductName);
 		
 		JLabel lblProductDescription = new JLabel("Product detail\r\n");
-		lblProductDescription.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblProductDescription.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblProductDescription.setBounds(246, 168, 139, 21);
 		add(lblProductDescription);
 		
@@ -64,14 +65,13 @@ public class updateProduct extends JPanel {
 		add(scroll);
 		
 		JLabel lblCompany = new JLabel("Company");
-		lblCompany.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCompany.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblCompany.setBounds(246, 241, 124, 21);
 		add(lblCompany);
 		idField.addKeyListener(new KeyListener() {
 			
 			@Override
 			public void keyTyped(KeyEvent e) {
-				// TODO Auto-generated method stub
 				id=idField.getText().trim()+e.getKeyChar();
 				List<String> data=DB.searchP(id);
 				if(data.size()==3)
@@ -83,25 +83,23 @@ public class updateProduct extends JPanel {
 							case "General":company.setSelectedIndex(0);break;
 							case "Mats & Rugs":company.setSelectedIndex(1);break;
 							case "N/S & Electric":company.setSelectedIndex(2);break;
+							default: break;
 						}
 					}
 			}
 			
 			@Override
 			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
+				// Not used as we dont need action on this event, but as a interface, we need to override this method
 			}
 			
 			@Override
 			public void keyPressed(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
+				// Not used as we dont need action on this event, but as a interface, we need to override this method
 			}
 		});
 		btnUpdateProduct = new JButton("Update Product");
-		btnUpdateProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		btnUpdateProduct.addActionListener( arg0-> {
 				if(quanField.getText().equals("")||idField.getText().equals(""))
 				{
 					error.setText(err);
@@ -118,7 +116,6 @@ public class updateProduct extends JPanel {
 					quanField.setText("");
 					descField.setText("");
 				}
-			}
 		});
 		btnUpdateProduct.setBounds(449, 338, 136, 23);
 		add(btnUpdateProduct);
@@ -129,11 +126,11 @@ public class updateProduct extends JPanel {
 		add(quanField);
 		
 		JLabel lblQuantity = new JLabel("Items available");
-		lblQuantity.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblQuantity.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblQuantity.setBounds(246, 276, 124, 21);
 		add(lblQuantity);
 		
-		company = new JComboBox<String>();
+		company = new JComboBox<>();
 		company.setBounds(449, 243, 136, 20);
 		add(company);
 		

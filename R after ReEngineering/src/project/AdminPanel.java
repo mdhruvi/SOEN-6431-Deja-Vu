@@ -1,4 +1,5 @@
 package project;
+
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +17,11 @@ import java.util.logging.Logger;
 
 
 public class AdminPanel extends JFrame implements ActionListener {
-	Logger logger= Logger.getLogger(this.getClass().getName());
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4955733321479262985L;
+	transient Logger logger= Logger.getLogger(this.getClass().getName());
 	JMenuItem itmAddProduct;
 	JMenu mnProduct;
 	JMenuItem itmUpdateProduct;
@@ -108,14 +113,14 @@ public class AdminPanel extends JFrame implements ActionListener {
 		
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		panels.add(new addProduct());
-		panels.add(new updateProduct());
-		panels.add(new deleteProduct());
-		panels.add(new addCashier());
-		panels.add(new deleteCashier());
-		panels.add(new showStock());
-		panels.add(new searchProduct());
-		panels.add(new searchCashier());
+		panels.add(new AddProduct());
+		panels.add(new UpdateProduct());
+		panels.add(new DeleteProduct());
+		panels.add(new AddCashier());
+		panels.add(new DeleteCashier());
+		panels.add(new ShowStock());
+		panels.add(new SearchProduct());
+		panels.add(new SearchCashier());
 		panels.add(new Sale());
 		getContentPane().add(panels.get(0));
 		
@@ -123,10 +128,10 @@ public class AdminPanel extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		logger.log(Level.INFO, "Selected: " + e.getActionCommand());
+		logger.log(Level.INFO, String.format("Selected: {0}",e.getActionCommand()));
 		if(e.getActionCommand().equals(Variables.ADD_PRODUCT))
 		{
-			logger.log(Level.INFO, panels.get(cPanel)+"");
+			logger.log(Level.INFO, panels.get(cPanel).toString());
 			this.remove(panels.get(cPanel));
 			this.revalidate();
 			this.repaint();

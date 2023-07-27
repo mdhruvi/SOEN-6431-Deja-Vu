@@ -1,6 +1,9 @@
 package project;
 
 public class Variables {
+	private Variables(){
+		throw new IllegalStateException("Utility class");
+	}
 	public static final String ADD_PRODUCT = "Add Product";
 	public static final String UPDATE_PRODUCT = "Update Product";
 	public static final String DELETE_PRODUCT = "Delete Product";
@@ -18,17 +21,7 @@ public class Variables {
 	public static final String UPDATE_STOCK_QUANTITY = "UPDATE stock set Quantity = ";
 	public static final String TAHOMA = "Tahoma";
 	public static final String PRODUCT_ID = "Product ID";
-	public static final String
-	public static final String
-	public static final String
-	public static final String
-	public static final String
-	public static final String
-	public static final String
-	public static final String
-	public static final String
-	public static final String
-	public static final String
-	public static final String
-	public static final String
+	public static final String PASSWORD_STRING = "P@ssw0rd";
+	public static final String GENERATE_INVOICE = "Generate Invoice";
+	public static final String WHERE_CONDITIO_STRING = " WHERE ProductID = ";
 }

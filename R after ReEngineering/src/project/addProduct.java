@@ -1,47 +1,49 @@
 package project;
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
 
-public class addProduct extends JPanel {
+public class AddProduct extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5431250057642005962L;
 	JTextField idField;
 	JTextArea descField;
     JTextField quanField;
     JLabel error;
 	JComboBox<String> company;
-	String id,detail,comp;
+	String id;
+	String detail;
+	String comp;
 	int quan;
 	String err="Enter product id and quantity";
 	/**
 	 * Create the panel.
 	 */
-	public addProduct() {
+	public AddProduct() {
 		setLayout(null);
 		setBounds(100, 100, 840, 619);
 		JLabel lblAddProduct = new JLabel("ADD PRODUCT");
 		lblAddProduct.setBounds(328, 45, 115, 21);
-		lblAddProduct.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblAddProduct.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 17));
 		add(lblAddProduct);
 		
 		JLabel lblProductName = new JLabel("Product ID");
-		lblProductName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblProductName.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblProductName.setBounds(246, 136, 124, 21);
 		add(lblProductName);
 		
 		JLabel lblProductDescription = new JLabel("Product Details\r\n");
-		lblProductDescription.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblProductDescription.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblProductDescription.setBounds(246, 168, 139, 21);
 		add(lblProductDescription);
 		
@@ -58,13 +60,12 @@ public class addProduct extends JPanel {
 		add(scroll);
 		
 		JLabel lblCompany = new JLabel("Company");
-		lblCompany.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCompany.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblCompany.setBounds(246, 241, 124, 21);
 		add(lblCompany);
 		
 		JButton btnAddProduct = new JButton("Add Product");
-		btnAddProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		btnAddProduct.addActionListener(arg0  -> {
 				if(quanField.getText().equals("")||idField.getText().equals(""))
 				{
 					error.setText(err);
@@ -81,7 +82,6 @@ public class addProduct extends JPanel {
 					quanField.setText("");
 					descField.setText("");
 				}
-			}
 		});
 		btnAddProduct.setBounds(449, 334, 136, 23);
 		add(btnAddProduct);
@@ -92,11 +92,11 @@ public class addProduct extends JPanel {
 		add(quanField);
 		
 		JLabel lblQuantity = new JLabel("Items available");
-		lblQuantity.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblQuantity.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblQuantity.setBounds(246, 273, 124, 21);
 		add(lblQuantity);
 		
-		company = new JComboBox<String>();
+		company = new JComboBox<>();
 		company.setBounds(449, 243, 136, 20);
 		add(company);
 		

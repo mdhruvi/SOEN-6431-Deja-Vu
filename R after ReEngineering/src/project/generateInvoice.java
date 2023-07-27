@@ -9,40 +9,44 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JMenuBar;
 import java.awt.Toolkit;
 
-public class generateInvoice extends JFrame implements ActionListener{
+public class GenerateInvoice extends JFrame implements ActionListener{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8734095048383611851L;
 	private JPanel contentPane;
 	int jp;
-	ArrayList<JPanel> panels=new ArrayList<JPanel>();
+	ArrayList<JPanel> panels=new ArrayList<>();
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+		EventQueue.invokeLater(() -> {
 				try {
-					generateInvoice frame = new generateInvoice();
+					GenerateInvoice frame = new GenerateInvoice();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			}
+			
 		});
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	public generateInvoice() {
+	public GenerateInvoice() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("F:\\Working Directory\\fianl project with sql\\Bill\\logo.png"));
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 850,600);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -51,11 +55,11 @@ public class generateInvoice extends JFrame implements ActionListener{
 		JMenu mnNewMenu = new JMenu("File");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmGenerateInvoice = new JMenuItem("Generate Invoice");
+		JMenuItem mntmGenerateInvoice = new JMenuItem(Variables.GENERATE_INVOICE);
 		mnNewMenu.add(mntmGenerateInvoice);
 		mntmGenerateInvoice.addActionListener(this);
 		
-		JMenuItem mntmSearch = new JMenuItem("Search Product");
+		JMenuItem mntmSearch = new JMenuItem(Variables.SEARCH_PRODUCT);
 		mnNewMenu.add(mntmSearch);
 		mntmSearch.addActionListener(this);
 		
@@ -67,19 +71,19 @@ public class generateInvoice extends JFrame implements ActionListener{
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		searchProduct sp=new searchProduct();
+		@SuppressWarnings("unused")
+		SearchProduct sp=new SearchProduct();
 		
 		panels.add(new Invoice());
-		panels.add(new searchProduct());
+		panels.add(new SearchProduct());
 		getContentPane().add(panels.get(0));
 		jp=0;
-		this.setTitle("Generate Invoice");
+		this.setTitle(Variables.GENERATE_INVOICE);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getActionCommand().equals("Search Product"))
+		if(e.getActionCommand().equals(Variables.SEARCH_PRODUCT))
 		{
 			this.remove(panels.get(jp));
 			this.revalidate();
@@ -90,7 +94,7 @@ public class generateInvoice extends JFrame implements ActionListener{
 			this.setTitle("Search Product");
 			
 		}
-		else if(e.getActionCommand().equals("Generate Invoice"))
+		else if(e.getActionCommand().equals(Variables.GENERATE_INVOICE))
 		{
 			this.remove(panels.get(jp));
 			this.revalidate();
@@ -98,7 +102,7 @@ public class generateInvoice extends JFrame implements ActionListener{
 			getContentPane().add(panels.get(0));
 			this.setVisible(true);
 			jp=0;
-			this.setTitle("Generate Invoice");
+			this.setTitle(Variables.GENERATE_INVOICE);
 		}
 		
 		else if(e.getActionCommand().equals("Logout"))
