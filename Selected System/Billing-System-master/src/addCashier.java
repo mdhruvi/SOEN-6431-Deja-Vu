@@ -20,7 +20,8 @@ public class addCashier extends JPanel {
 	private JPasswordField passwordField;
 	private JLabel error;
 	String err="Enter username and passowrd";
-	String user,pass;
+	String user;
+	String pass;
 	/**
 	 * Create the panel.
 	 */
@@ -29,16 +30,16 @@ public class addCashier extends JPanel {
 		setBounds(100, 100, 840, 619);
 		JLabel lblAddCashier = new JLabel("ADD CASHIER");
 		lblAddCashier.setBounds(328, 45, 182, 21);
-		lblAddCashier.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblAddCashier.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 17));
 		add(lblAddCashier);
 		
 		JLabel lblUserName = new JLabel("User name");
-		lblUserName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblUserName.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblUserName.setBounds(246, 104, 124, 21);
 		add(lblUserName);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblPassword.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblPassword.setBounds(246, 136, 124, 21);
 		add(lblPassword);
 		
@@ -51,7 +52,7 @@ public class addCashier extends JPanel {
 		btnAddCashier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				user=userField.getText().trim();
-				pass=passwordField.getText().toString().trim().toLowerCase();
+				pass=passwordField.toString().trim().toLowerCase();
 				if(user.equals("")||pass.equals(""))
 					error.setText(err);
 				else

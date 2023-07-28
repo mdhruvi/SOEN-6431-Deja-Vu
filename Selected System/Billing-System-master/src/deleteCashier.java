@@ -28,16 +28,16 @@ public class deleteCashier extends JPanel {
 		setBounds(100, 100, 840, 619);
 		JLabel lblDeleteCashier = new JLabel("DELETE CASHIER");
 		lblDeleteCashier.setBounds(328, 45, 182, 21);
-		lblDeleteCashier.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDeleteCashier.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 17));
 		add(lblDeleteCashier);
 		
 		JLabel lblUserName = new JLabel("User name");
-		lblUserName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblUserName.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblUserName.setBounds(246, 104, 124, 21);
 		add(lblUserName);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblPassword.setFont(new Font(Variables.TAHOMA, Font.PLAIN, 14));
 		lblPassword.setBounds(246, 136, 124, 21);
 		add(lblPassword);
 		
